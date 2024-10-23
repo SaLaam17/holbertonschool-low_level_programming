@@ -7,11 +7,15 @@
  */
 int main(void)
 {
-	char ch;
-
-	for (ch = 'a'; ch <= 'z'; ch++)
+	char ch = 'a';
+/**
+ * déclaration et initialisation
+ * de la variable ch qui est de type char
+ */
+	while (ch <= 'z')
 	{
 		putchar(ch);
+		ch++;
 	}
 	putchar('\n');
 	return (0);
