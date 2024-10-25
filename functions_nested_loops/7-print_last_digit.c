@@ -3,8 +3,8 @@
 /**
  * print_last_digit - Entry point
  * @num: input
- * Description: prints the last digit of a number.
- * Return: Always 0 (Success)
+ * Description: prints the last digit of a number
+ * Return: value of the last digit
  */
 
 int print_last_digit(int num)
