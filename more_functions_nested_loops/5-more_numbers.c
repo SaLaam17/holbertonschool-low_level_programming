@@ -11,14 +11,15 @@ void more_numbers(void)
 	int ligne;
 	char n;
 
-	for (ligne = 1; ligne <= 10; ligne++)
+	for (ligne = 0; ligne <= 9; ligne++)
 	{
-		n = '0';
-		while (n <= 14)
+		for (n = 0; n <= 14; n++)
 		{
+			if (n > 9)
+			{
+				_putchar((n / 10) + '0');
+			}
 			_putchar((n % 10) + '0');
-			_putchar((n / 10) + '0');
-			n++;
 		}
 		_putchar('\n');
 	}
