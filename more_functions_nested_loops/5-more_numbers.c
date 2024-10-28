@@ -14,7 +14,7 @@ void more_numbers(void)
 	for (ligne = 1; ligne <= 10; ligne++)
 	{
 		n = '0';
-		while (ligne <= 14)
+		while (n <= 14)
 		{
 			_putchar((n % 10) + '0');
 			_putchar((n / 10) + '0');
