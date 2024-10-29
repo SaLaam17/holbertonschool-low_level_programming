@@ -1,10 +1,29 @@
-#include "main.h"
-#include <unistd.h>
+#include <stdio.h>
+
 /**
- * print_square - Entry point
- * @n: input
+ * main - Entry point
+ *
  * Description: function that prints a square, followed by a new line.
+ * Return: Always 0 Success
  */
 
+int main(void)
+{
+	int num;
 
-for (n=1;n<=9;n++) {_putchar(n + '0'); _putchar(' ');} for (n=10;n<=99;n++) {_putchar((n /10) + '0'); _putchar((n %10)+ '0'); _putchar(' ');} if (n = = 100) { _putchar((n/100) + '0'); _putchar((n/10) + '0'); _putchar((n%10) + '0');}
+	for (num = 1; num <= 100; num++)
+	{
+		if ((num % 3) == 0 && (num % 5) == 0)
+		printf("FizzBuzz ");
+		else if ((num % 3) == 0)
+		printf("Fizz ");
+		else if ((num % 5) == 0)
+		printf("Buzz ");
+		else
+		printf("%d ", num);
+	}
+
+	printf("\n");
+
+	return (0);
+}
