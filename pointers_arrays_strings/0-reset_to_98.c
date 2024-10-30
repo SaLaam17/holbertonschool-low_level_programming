@@ -2,23 +2,13 @@
 
 /**
  * reset_to_98 - Entry point
- * @n: input
- * @*n: input
- * Return: Always 0 (Success)
+ * @n: Pointer to an int
+ * Description: function that takes a pointer to an int as parameter
+ * and updates the value it points to to 98.
  */
 
 void reset_to_98(int *n)
 
 {
-  int x = 10;
-
-  // Pointer declaration and initialization
-  int * ptr = & x;
-
-  // Printing the current value
-  printf("Value of x = %d\n", * ptr);
-
-
-
-  return 0;
+	*n = 98;
 }
