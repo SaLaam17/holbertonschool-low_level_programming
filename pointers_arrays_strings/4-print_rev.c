@@ -9,23 +9,16 @@
 
 void print_rev(char *str)
 {
-	char tmp = 0;
-	int end = 0;
-	int start = 0;
+	int len = 0;
+	int i;
 
-	while (str[end] != '\0')
+	while (str[i++])
 	{
-		start++;
-		end--;
+		len++;
 	}
-	while (start < end)
+	for (i = len - 1; i >= 0; i--)
 	{
-		tmp = str[start];
-		str[start] = str[end];
-		str[end] = tmp;
-		start++;
-		end--;
-		_putchar(*str);
+		_putchar(str[i]);
 	}
 	_putchar('\n');
 }
