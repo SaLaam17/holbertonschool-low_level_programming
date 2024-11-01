@@ -13,19 +13,18 @@ void rev_string(char *str)
 	int end = 0;
 	int start = 0;
 
-	while (str[end] != '\0')
-	{
-		start++;
+		while (str[end] != '\0')
+		{
+			end++;
+		}
 		end--;
-	}
-	while (start < end)
-	{
-		tmp = str[start];
-		str[start] = str[end];
-		str[end] = tmp;
-		start++;
-		end--;
-	}
-	_putchar('\n');
+		while (start < end)
+		{
+			tmp = str[start];
+			str[start] = str[end];
+			str[end] = tmp;
+			start++;
+			end--;
+		}
 }
 
