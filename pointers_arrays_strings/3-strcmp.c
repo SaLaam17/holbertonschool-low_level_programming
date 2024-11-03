@@ -13,13 +13,19 @@ int _strcmp(char *s1, char *s2)
 	int j = 0;
 	int s1_len = 0;
 	int s2_len = 0;
-	int diff_s1_s2 = s1_len - s2_len;
+	int diff_s1_s2 = 0;
 
 	while (s1[i++])
-	s1_len++;
+	{
+		s1_len++;
+	}
 
 	while (s2[j++])
-	s2_len++;
+	{
+		s2_len++;
+	}
+	
+	diff_s1_s2 = (s1_len - s2_len);
 
 	return (diff_s1_s2);
 }
