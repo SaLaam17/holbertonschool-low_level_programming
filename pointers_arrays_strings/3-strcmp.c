@@ -24,7 +24,7 @@ int _strcmp(char *s1, char *s2)
 	{
 		s2_len++;
 	}
-	
+
 	diff_s1_s2 = (s1_len - s2_len);
 
 	return (diff_s1_s2);
