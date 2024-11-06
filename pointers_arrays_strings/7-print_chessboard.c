@@ -2,8 +2,9 @@
 
 /**
  * print_chessboard - Entry point
- * 
+ * @a: array to be printed
  * Description: function that prints the chessboard.
+ *
  */
 
 void print_chessboard(char (*a)[8])
