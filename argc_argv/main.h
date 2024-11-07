@@ -34,5 +34,6 @@ void _print_rev_recursion(char *s);
 int _sqrt_recursion(int n);
 int find_sqrt(int num, int a);
 int main(int argc __attribute__((__unused__)), char *argv[]);
+int main(int argc, char *argv[] __attribute__((unused)));
 
 #endif
