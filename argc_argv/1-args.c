@@ -7,12 +7,12 @@
  * @argc: The number of arguments supplied to the program.
  * @argv: An array of pointers to the arguments.
  *
- * Return: the value of argc.
+ * Return: Always 0.
  */
 
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	printf("%d\n", argc);
+	printf("%d\n", argc - 1);
 
-	return (argc);
+	return (0);
 }
