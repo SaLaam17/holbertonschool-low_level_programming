@@ -1,19 +1,20 @@
-#include <stdio.h>
 #include "variadic_functions.h"
+#include <stdio.h>
 #include <stdarg.h>
 
 /**
  * print_char - function that print a char
- * @args: list of arguments
+ * @args: A va_list pointing to the character to be printed.
 */
+
 void print_char(va_list args)
 {
-	printf("%c", va_arg(args, char));
+	printf("%c", va_arg(args, int));
 }
 
 /**
  * print_int - function that print an int
- * @args: list of arguments
+ * @args: A va_list pointing to the integer to be printed.
 */
 void print_int(va_list args)
 {
@@ -22,22 +23,20 @@ void print_int(va_list args)
 
 /**
  * print_float - function that print a float
- * @args: list of arguments
+ * @args: A va_list pointing to the float to be printed.
 */
 void print_float(va_list args)
 {
-	printf("%f", va_arg(args, float));
+	printf("%f", va_arg(args, double));
 }
 
 /**
  * print_string - function that print a string
- * @args: list of arguments
+ * @args: A va_list pointing to the string to be printed.
 */
 
 void print_string(va_list args)
-{
-	printf("%s", va_arg(args, char *));
-	
+{	
 	if (va_arg(args, char *) == NULL)
 	{
 		printf("(nil)");
@@ -56,8 +55,9 @@ void print_all(const char * const format, ...)
 {
 	va_list args;
 	int i = 0;
-	int j =0;
-	name_name array []= {
+	int j = 0;
+	char *separator = "";
+	form_t array [] = {
 	{"c", print_char},
 	{"i", print_int},
 	{"f", print_float},
@@ -67,11 +67,22 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
+	while(format!= NULL && format[i] != '\0')
+	{
+		j = 0;
 
+		while(j < 4 && format[i] != array[j].specifier[0])
+			j++;
 
-
-
-
+		if(j < 4)
+		{
+			printf("%s", separator);
+				array[j].f(args);
+				separator = ", ";
+		}
+		i++;
+	}
+	printf("\n");
 	va_end(args);
-
+}
 
