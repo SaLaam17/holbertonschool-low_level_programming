@@ -50,7 +50,6 @@ void print_string(va_list args)
 
  /**
  * print_all - function that prints anything.
- * 
  * Description: Any argument not of type char, int, float,
  * or char * is ignored.
  * If a string argument is NULL, (nil) is printed instead.
