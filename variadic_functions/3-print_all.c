@@ -36,9 +36,10 @@ void print_float(va_list args)
 */
 
 void print_string(va_list args)
-{	
+{
 	char *str = va_arg(args, char *);
-	if(str == NULL)
+
+	if (str == NULL)
 	{
 		printf("(nil)");
 		return;
@@ -68,14 +69,14 @@ void print_all(const char * const format, ...)
 
 	va_start(args, format);
 
-	while(format!= NULL && format[i] != '\0')
+	while (format != NULL && format[i] != '\0')
 	{
 		j = 0;
 
-		while(j < 4 && format[i] != array[j].specifier[0])
+		while (j < 4 && format[i] != array[j].specifier[0])
 			j++;
 
-		if(j < 4)
+		if (j < 4)
 		{
 			printf("%s", separator);
 				array[j].f(args);
