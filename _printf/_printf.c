@@ -1,7 +1,13 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
 
+/**
+ * _putchar
+ * 
+ */
+int _putchar(char c)
+{
+	return(write(1, &c, 1));
+}
 /**
  * print_char - function that print a char
  * @args: A va_list pointing to the character to be printed.
@@ -10,9 +16,9 @@
 
 int print_char(va_list args)
 {
-	char letter = va_arg(args, int);
-	write (1, &letter, 1);
-	return(1);
+	char letter = va_arg(args, int); 
+	_putchar(letter); 
+	return 1; 
 }
 
 /**
@@ -31,7 +37,7 @@ int print_string(va_list args)
 	int i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, &str[i], 1);
+		_putchar(str[i]);
 		i++;
 	}
 	return(i);
@@ -39,7 +45,7 @@ int print_string(va_list args)
 int print_percent(va_list args)
 {
 	(void)args;
-	write (1, "%", 1);
+	_putchar('%');
 	return(1);
 }
  /**
@@ -48,7 +54,7 @@ int print_percent(va_list args)
  * @format: A string of characters representing the argument types.
  */
 
-void _printf(const char * format, ...)
+int _printf(const char * format, ...)
 {
 	va_list args;
 	int i = 0;
@@ -79,7 +85,7 @@ void _printf(const char * format, ...)
         } 
 		else 
 		{
-            write(1, &format[i], 1);
+            _putchar(format[i]);
         }
         i++;
     }
