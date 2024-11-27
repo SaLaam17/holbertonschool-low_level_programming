@@ -1,33 +1,18 @@
-#include "variadic_functions.h"
+#include "main.h"
 #include <stdio.h>
 #include <stdarg.h>
 
 /**
  * print_char - function that print a char
  * @args: A va_list pointing to the character to be printed.
+ * Return: the number of characters printed
 */
 
-void print_char(va_list args)
+int print_char(va_list args)
 {
-	printf("%c", va_arg(args, int));
-}
-
-/**
- * print_int - function that print an int
- * @args: A va_list pointing to the integer to be printed.
-*/
-void print_int(va_list args)
-{
-	printf("%d", va_arg(args, int));
-}
-
-/**
- * print_float - function that print a float
- * @args: A va_list pointing to the float to be printed.
-*/
-void print_float(va_list args)
-{
-	printf("%f", va_arg(args, double));
+	char letter = va_arg(args, int);
+	write (1, &letter, 1);
+	return(1);
 }
 
 /**
@@ -35,59 +20,70 @@ void print_float(va_list args)
  * @args: A va_list pointing to the string to be printed.
 */
 
-void print_string(va_list args)
-{
-	char *str = va_arg(args, char *);
 
+int print_string(va_list args) 
+{
+	char *str = va_arg(args, char *); 
 	if (str == NULL)
 	{
-		printf("(nil)");
-		return;
+		str = "(NULL)";
 	}
-
-	printf("%s", str);
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return(i);
 }
-
+int print_percent(va_list args)
+{
+	(void)args;
+	write (1, "%", 1);
+	return(1);
+}
  /**
- * print_all - function that prints anything.
- * Description: Any argument not of type char, int, float,
- * or char * is ignored.
- * If a string argument is NULL, (nil) is printed instead.
+ * _printf - function that prints ...
+ * Description: 
  * @format: A string of characters representing the argument types.
  */
 
-void print_all(const char * const format, ...)
+void _printf(const char * format, ...)
 {
 	va_list args;
 	int i = 0;
-	int j = 0;
-	char *separator = "";
-	form_t array[] = {
+	format_t array[] = {
 	{"c", print_char},
-	{"i", print_int},
-	{"f", print_float},
 	{"s", print_string},
+	{'%',print_percent},
 	{NULL, NULL}
 	};
 
 	va_start(args, format);
 
-	while (format != NULL && format[i] != '\0')
+    while (format[i] != '\0') 
 	{
-		j = 0;
-
-		while (j < 4 && format[i] != array[j].specifier[0])
-			j++;
-
-		if (j < 4)
+        if (format[i] == '%') 
 		{
-			printf("%s", separator);
-				array[j].f(args);
-				separator = ", ";
-		}
-		i++;
-	}
-	printf("\n");
+            i++;
+            int j = 0;
+            while (array[j].letter != NULL) 
+			{
+                if (format[i] == array[j].letter[0]) 
+				{
+                    array[j].function_pointer(args);
+                    break;
+                }
+                j++;
+            }
+        } 
+		else 
+		{
+            write(1, &format[i], 1);
+        }
+        i++;
+    }
+	
 	va_end(args);
 }
 
