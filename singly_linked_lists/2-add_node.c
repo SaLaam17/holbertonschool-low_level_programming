@@ -8,6 +8,7 @@
  *
  * Return: The length of the string
  */
+
 unsigned int _strlen(const char *str)
 {
 	unsigned int len = 0;
